@@ -59,7 +59,7 @@
                       persistent-hint
                      )
                 v-spacer
-                v-textarea.mt-3(
+                v-textarea.is-monospaced.mt-3(
                       outlined
                       label='Content'
                       required
@@ -68,7 +68,9 @@
                       prepend-icon='mdi-text-shadow'
                       hint='Modifica contenido'
                       persistent-hint
+                      auto-grow
                      )
+
                 v-divider
                 v-list(dense,nav)
                   v-list-item-title: .overline.grey--text CreatedAt 
@@ -191,5 +193,11 @@ export default {
   padding: 1px;
   }
 
+.v-textarea.is-monospaced textarea {
+  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
 
 </style>
