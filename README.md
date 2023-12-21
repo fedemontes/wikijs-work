@@ -26,9 +26,7 @@
 
 </div>
 
-<picture>
-    <img alt="Wiki.js" src="https://static.requarks.io/logo/wikijs-full.svg" width="600">
-</picture>
+
 
 #### WIKIJS official sources
 
@@ -44,5 +42,10 @@
 - [E2E Testing Results](https://dashboard.cypress.io/projects/r7qxah/runs)
 - [Special Thanks](#special-thanks)
 - [Contribute](#contributors)
+
+<div align="center">
+<picture>
+    <img alt="Innova4Social" src="https://innova4social.org:3443/img/home.jpg" width="600">
+</picture>
 
 fmontesq@uoc.edu
