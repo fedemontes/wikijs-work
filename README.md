@@ -21,7 +21,7 @@
 [![Chat on Discord](https://img.shields.io/badge/discord-join-8D96F6.svg?style=flat&logo=discord&logoColor=white)](https://discord.gg/rcxt9QS2jd)
 [![Reddit](https://img.shields.io/badge/reddit-%2Fr%2Fwikijs-orange?logo=reddit&logoColor=white)](https://www.reddit.com/r/wikijs/)
 
-##### WIKIJS for generative AI
+## WIKIJS and generative AI TFG. from FEDE MONTES QUILES
 
 </div>
 
