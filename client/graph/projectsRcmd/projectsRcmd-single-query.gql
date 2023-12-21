@@ -1,0 +1,16 @@
+query($id: Int!) {
+  projectsRcmds {
+    single(id:$id){
+      id
+      title
+      content 
+      createdAt
+      updatedAt
+      authorId
+      authorName
+      authorEmail
+      arguments
+    }
+  }
+}
+
