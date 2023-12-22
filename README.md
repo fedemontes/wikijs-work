@@ -5,6 +5,10 @@
   <img alt="Wiki.js" src="https://static.requarks.io/logo/wikijs-full.svg" width="600">
 </picture>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ce504e6efb34dcc78df5a9b6641f4fa3f72a9e2b
 [![Release](https://img.shields.io/github/release/Requarks/wiki.svg?style=flat&maxAge=3600)](https://github.com/Requarks/wiki/releases)
 [![License](https://img.shields.io/badge/license-AGPLv3-blue.svg?style=flat)](https://github.com/requarks/wiki/blob/master/LICENSE)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-green.svg?style=flat&logo=javascript&logoColor=white)](http://standardjs.com/)
@@ -21,10 +25,21 @@
 [![Chat on Discord](https://img.shields.io/badge/discord-join-8D96F6.svg?style=flat&logo=discord&logoColor=white)](https://discord.gg/rcxt9QS2jd)
 [![Reddit](https://img.shields.io/badge/reddit-%2Fr%2Fwikijs-orange?logo=reddit&logoColor=white)](https://www.reddit.com/r/wikijs/)
 
+<<<<<<< HEAD
 ##### A modern, lightweight and powerful wiki app built on NodeJS
 
 </div>
 
+=======
+## WIKIJS and generative AI from FEDE MONTES QUILES, UOC and U4IMPACT.
+
+</div>
+
+
+
+#### WIKIJS official sources
+
+>>>>>>> ce504e6efb34dcc78df5a9b6641f4fa3f72a9e2b
 - **[Official Website](https://js.wiki/)**
 - **[Documentation](https://docs.requarks.io/)**
 - [Requirements](https://docs.requarks.io/install/requirements)
@@ -38,6 +53,7 @@
 - [Special Thanks](#special-thanks)
 - [Contribute](#contributors)
 
+<<<<<<< HEAD
 [Follow our Twitter feed](https://twitter.com/requarks) to learn about upcoming updates and new releases!
 
 <h2 align="center">Donate</h2>
@@ -500,3 +516,11 @@ This project exists thanks to all the people who contribute. [[Contribute]](http
 
 ![Porkbun](https://static.requarks.io/logo/porkbun.png)  
 [Porkbun](https://www.porkbun.com) for providing domain registration services.
+=======
+<div align="center">
+<picture>
+    <img alt="Innova4Social" src="https://innova4social.org:3443/img/home.jpg" width="600">
+</picture>
+
+fmontesq@uoc.edu
+>>>>>>> ce504e6efb34dcc78df5a9b6641f4fa3f72a9e2b

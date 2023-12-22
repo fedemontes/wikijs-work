@@ -59,7 +59,11 @@
                       persistent-hint
                      )
                 v-spacer
+<<<<<<< HEAD
                 v-textarea.mt-3(
+=======
+                v-textarea.is-monospaced.mt-3(
+>>>>>>> ce504e6efb34dcc78df5a9b6641f4fa3f72a9e2b
                       outlined
                       label='Content'
                       required
@@ -68,7 +72,13 @@
                       prepend-icon='mdi-text-shadow'
                       hint='Modifica contenido'
                       persistent-hint
+<<<<<<< HEAD
                      )
+=======
+                      auto-grow
+                     )
+
+>>>>>>> ce504e6efb34dcc78df5a9b6641f4fa3f72a9e2b
                 v-divider
                 v-list(dense,nav)
                   v-list-item-title: .overline.grey--text CreatedAt 
@@ -191,5 +201,14 @@ export default {
   padding: 1px;
   }
 
+<<<<<<< HEAD
+=======
+.v-textarea.is-monospaced textarea {
+  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+>>>>>>> ce504e6efb34dcc78df5a9b6641f4fa3f72a9e2b
 
 </style>
