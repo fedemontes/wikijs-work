@@ -96,13 +96,8 @@ v-container(fluid, grid-list-lg)
            template(slot='no-data')
               v-alert.ma-3(icon='mdi-alert', :value='true', outlined) No projects to display.
 
-<<<<<<< HEAD
           .text-center.py-2.animated.fadeInDown(v-if='this.pageTotal > 0')
           v-pagination(v-model='pagination', :length='pageTotal')
-=======
-           .text-center.py-2.animated.fadeInDown(v-if='this.pageTotal > 0')
-           v-pagination(v-model='pagination', :length='pageTotal')
->>>>>>> 64dc2705b1e36b86c8126413947d917ac1ffd335
 
 </template>
 
