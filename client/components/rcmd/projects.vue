@@ -261,16 +261,5 @@ export default {
     height:100px;
     overflow: auto;
   }
- 
 </style>
 
-
-
-
-
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 64dc2705b1e36b86c8126413947d917ac1ffd335
