@@ -58,6 +58,10 @@ v-container(fluid, grid-list-lg)
                        hint='Modifica título'
                        persistent-hint
                       )
+                 v-col.text-right(ref='xcopy')
+                  span.overline Copiar content
+                  v-btn.ml-3(color='teal',icon, outlined, @click='copy')
+                   v-icon(color='teal') mdi-content-copy
                  v-spacer
                  v-textarea.is-monospaced.mt-3(
                        outlined
@@ -68,14 +72,18 @@ v-container(fluid, grid-list-lg)
                        prepend-icon='mdi-text-shadow'
                        hint='Modifica contenido'
                        persistent-hint
-                       auto-grow
-                     )
+                       auto-grow 
+                       ref='clone'
+                       v-on:focus="$event.target.select()" 
+                      )
                  v-divider
                  v-list(dense,nav)
                    v-list-item-title: .overline.grey--text CreatedAt 
                    v-list-item-subtitle.body-2(:class='$vuetify.theme.dark ? `grey--text text--lighten-2` : `grey--text text--darken-3`') {{ projectsRcmds.createdAt | moment('calendar') }}
                    v-list-item-title: .overline.grey--text UpdatedAt 
                    v-list-item-subtitle.body-2(:class='$vuetify.theme.dark ? `grey--text text--lighten-2` : `grey--text text--darken-3`') {{ projectsRcmds.updatedAt | moment('calendar') }}
+ 
+ 
 </template>
  
  <script>
@@ -104,6 +112,11 @@ v-container(fluid, grid-list-lg)
      }
    },
    methods: {
+     copy() {
+      this.$refs.clone.focus();
+      document.execCommand('copy');
+      window.scrollTo(0,this.$refs.xcopy);
+     },
      handleSubmit() {
        this.$refs.form.validate();
        if(!this.valid) {
@@ -189,13 +202,12 @@ v-container(fluid, grid-list-lg)
    padding: 1px;
    }
  
-
- .v-textarea.is-monospaced textarea {
+  .v-textarea.is-monospaced textarea {
    font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
    font-size: 13px;
    font-weight: 600;
    line-height: 1.4;
  }
  
- </style>
  
+ </style> 
