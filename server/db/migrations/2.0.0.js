@@ -192,6 +192,7 @@ exports.up = knex => {
       table.json('arguments')
       table.string('createdAt').notNullable()
       table.string('updatedAt').notNullable()
+      table.boolean('isnew').notNullable().defaultTo(true)
     })
 
 
