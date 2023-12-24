@@ -1,5 +1,5 @@
 <template lang='pug'>
-   v-container(fluid, grid-list-lg)
+v-container(fluid, grid-list-lg)
     v-content(:class='$vuetify.theme.dark ? "grey darken-4" : "grey lighten-5"'  )
     v-layout(row wrap)
         .projects-header
