@@ -30,7 +30,6 @@ module.exports = {
          },
         'projectsrcmd.arguments',
         'projectsrcmd.isnew',
-
       ])
        .join('users', 'authorId', '=', 'users.id')
        .modify(queryBuilder => {
