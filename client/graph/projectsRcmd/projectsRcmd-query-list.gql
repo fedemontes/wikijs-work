@@ -9,6 +9,7 @@ query ($sector: String, $trabajo: String, $perfil_alumnado: String ){
       authorId 
       authorName
       arguments
+      isnew
     }
   }
 }

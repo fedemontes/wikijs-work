@@ -29,6 +29,8 @@ module.exports = {
             authorEmail: 'users.email',
          },
         'projectsrcmd.arguments',
+        'projectsrcmd.isnew',
+
       ])
        .join('users', 'authorId', '=', 'users.id')
        .modify(queryBuilder => {
