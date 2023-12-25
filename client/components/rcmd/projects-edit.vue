@@ -1,5 +1,5 @@
 <template lang='pug'>
- v-container(fluid, grid-list-lg)
+v-container(fluid, grid-list-lg)
     v-content(:class='$vuetify.theme.dark ? "grey darken-4" : "grey lighten-5"' style='padding-top: 65px !important;' )
     v-layout(row,wrap)
          img.animated.fadeInUp(src='/_assets/svg/icon-process.svg', alt='Projects', style='width: 80px;')
@@ -57,7 +57,7 @@
                     persistent-hint
                     hint='Los nuevos proyectos vienen por defecto marcados'
                   )
-                 v-col.text-right.overline Copiar content
+                 v-col.pa-7.text-right.overline Copiar content
                   v-btn.ml-3(color='teal',icon, outlined, @click='copy')
                    v-icon(color='teal') mdi-content-copy
                 v-spacer
