@@ -297,12 +297,18 @@ router.post(['/r', '/r/*'], async (req, res, next) => {
  switch (pageArgs.path) {
 
   case 'create/project':
+    try {
     const response = await rcmdProjectsAI.getProjectsAI(WIKI.config.rcmd.url,WIKI.config.rcmd.jwt, req.body)
     if (response ) {
        const insert = await WIKI.models.projectsRcmd.insertProject(response,req.user);
+       res.json(response);
+      }
+    } catch (err) {
+        res.json ( { "code": 500, "msg": err.message } )
     }
-    res.json(response);
+
     break;
+
 
   default:
     break;
