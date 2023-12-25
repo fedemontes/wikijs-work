@@ -69,6 +69,7 @@ module.exports = class projectsRcmd extends Model {
   try {
     const queryMax = await WIKI.models.projectsRcmd.query().max('id'); 
     var max = queryMax[0].max;
+    if (opts.descripcion) {
     let insertOptions = {
      id: max + 1,
      title: opts.descripcion.substr(0,100),
@@ -76,10 +77,12 @@ module.exports = class projectsRcmd extends Model {
      arguments: opts.arguments,
      authorId: user.id,
      createdAt: Date.now().toString(),
-     updatedAt: Date.now().toString()
-    }
-    const insert = await WIKI.models.projectsRcmd.query().insert(insertOptions);
-    return insert;
+     updatedAt: Date.now().toString(),
+     isnew: true
+     }
+     const insert = await WIKI.models.projectsRcmd.query().insert(insertOptions);
+     return insert;
+    } 
    }
     catch (err) {
         WIKI.logger.warn(err)
@@ -103,7 +106,8 @@ module.exports = class projectsRcmd extends Model {
     await WIKI.models.projectsRcmd.query().patch({
       title: opts.title,
       content: opts.content,
-      updatedAt: opts.updatedAt
+      updatedAt: opts.updatedAt,
+      isnew: opts.isnew 
       })
      .where('id', ogProject.id)
    } 
@@ -132,6 +136,7 @@ module.exports = class projectsRcmd extends Model {
           'projectsrcmd.updatedAt',
           'projectsrcmd.authorId',
           'projectsrcmd.arguments',
+          'projectsrcmd.isnew',
           {
             authorName: 'author.name',
             authorEmail: 'author.email',

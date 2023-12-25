@@ -258,6 +258,7 @@ export default {
      this.loading = false;
      this.generatingProjects = false; 
      this.$store.commit(`loadingStop`, 'projectsRcmd-generate')
+
      if ( data.data.code == 200 ) { 
        this.$store.commit('showNotification', {
            style: 'success',
@@ -267,8 +268,8 @@ export default {
       window.location.href = '/r/projects';
     } else {
        this.$store.commit('showNotification', {
-           style: 'failed',
-           message: data.message,
+           style: 'error',
+           message: data.data.message,
            icon: 'alert'
          })
     }
