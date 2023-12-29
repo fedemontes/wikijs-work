@@ -36,7 +36,9 @@ let postData = {
      perfil_ideal: args.perfil_ideal.toString(),
      experiencia: args.experiencia.toString(),
      publico_objetivo: args.publico_objetivo.toString(),
-     proyecto_objetivo: args.proyecto_objetivo.toString()
+     proyecto_objetivo: args.proyecto_objetivo.toString(),
+     doblin: args.doblin.toString()
+
  
 }
 
