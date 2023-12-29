@@ -338,13 +338,13 @@ router.get(['/r', '/r/*'], async (req, res, next) => {
   switch (pageArgs.path) {
 
   case 'create/data-sheet':
-    const result = await googleSpreadSheet.getSpreadSheetValuesAPI(WIKI.config.rcmd.spreadSheetId,credentials,['doblin','sectores','tecnologias', 'numempleados', 'areassostenibilidad', 'perfilestudiante', 'empleos', 'trabajos', 'horas'])
+    const result = await googleSpreadSheet.getSpreadSheetValuesAPI(WIKI.config.rcmd.spreadSheetId,credentials,['doblin','sectores','tecnologias', 'numempleados', 'areassostenibilidad', 'perfilestudiante', 'empleos'])
     const jsonString = JSON.stringify(Object.assign({}, result))
     res.json(JSON.parse(jsonString));
     break;
 
   case 'create/data-sheet-project':
-    const resultS = await googleSpreadSheet.getSpreadSheetValuesAPI(WIKI.config.rcmd.spreadSheetId,credentials,['doblin','sectores', 'perfilestudiante','trabajos'])
+    const resultS = await googleSpreadSheet.getSpreadSheetValuesAPI(WIKI.config.rcmd.spreadSheetId,credentials,['doblin','sectores', 'perfilestudiante'])
     const jsonStringS = JSON.stringify(Object.assign({}, resultS))
     res.json(JSON.parse(jsonStringS));
     break;

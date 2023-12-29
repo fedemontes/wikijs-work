@@ -37,6 +37,7 @@ let postData = {
      experiencia: args.experiencia.toString(),
      publico_objetivo: args.publico_objetivo.toString(),
      proyecto_objetivo: args.proyecto_objetivo.toString(),
+     extra: args.extra.toString(),
      doblin: args.doblin.toString()
 
  

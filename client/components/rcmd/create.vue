@@ -47,11 +47,9 @@ v-container(fluid, grid-list-lg)
                       v-model='doblin'
                       outlined
                       :items='dataSheet.doblin'
-                      :rules="requiredRule"
                       prepend-icon='mdi-arrow-decision'
                       persistent-hint
                       hint='Doblin: ¿En qué parte del proceso quieres la innovación?'
-                      required
                     )
                   v-card-text
                     v-select(
@@ -62,7 +60,7 @@ v-container(fluid, grid-list-lg)
                       :rules="requiredRule"
                       prepend-icon='mdi-shape'
                       persistent-hint
-                      hint='Sectores'
+                      hint='Sectores (*)'
                       required
                     )
                   v-card-text
@@ -70,11 +68,9 @@ v-container(fluid, grid-list-lg)
                       outlined
                       v-model='perfil_alumnado'
                       :items='dataSheet.perfilestudiante'
-                      :rules="requiredRule"
                       prepend-icon='mdi-school'
                       persistent-hint
-                      hint='Perfil estudiante'
-                      required
+                      hint='Necesidades de atracción o talento'
                     )
   
                   v-card-text
@@ -82,35 +78,9 @@ v-container(fluid, grid-list-lg)
                       outlined
                       v-model='perfil_ideal'
                       :items='dataSheet.empleos'
-                      :rules="requiredRule"
                       prepend-icon='mdi-account'
                       persistent-hint
-                      hint='Perfil trabajador ideal'
-                      required
-                    )
-  
-                  v-card-text
-                    v-select(
-                      outlined
-                      v-model='trabajo'
-                      :items='dataSheet.trabajos'
-                      :rules="requiredRule"
-                      prepend-icon='mdi-format-list-bulleted-type'
-                      persistent-hint
-                      hint='Tipo de trabajo'
-                      required
-                    )
-  
-                  v-card-text
-                    v-select(
-                      outlined
-                      v-model='horas'
-                      :items='dataSheet.horas'
-                      :rules="requiredRule"
-                      prepend-icon='mdi-clock-time-nine'
-                      persistent-hint
-                      hint='Horas'
-                      required
+                      hint='Experto trabajador ideal'
                     )
   
                   v-card-text
@@ -118,10 +88,10 @@ v-container(fluid, grid-list-lg)
                       outlined
                       v-model='empleados'
                       :items='dataSheet.numempleados'
-                      :rules="requiredRule"
                       prepend-icon='mdi-counter'
                       persistent-hint
-                      hint='Número de empleados'
+                      :rules="requiredRule"
+                      hint='Número de empleados (*)'
                       required
                     )
   
@@ -130,22 +100,18 @@ v-container(fluid, grid-list-lg)
                       outlined
                       v-model='tecnologias'
                       :items='dataSheet.tecnologias'
-                      :rules="requiredRule"
                       prepend-icon='mdi-robot-industrial'
                       persistent-hint
                       hint='Tecnologías'
-                      required
                     )
                   v-card-text
                     v-select(
                       outlined
                       v-model='sostenibilidad'
                       :items='dataSheet.areassostenibilidad'
-                      :rules="requiredRule"
                       prepend-icon='mdi-tree'
                       persistent-hint
                       hint='Áreas de sostenibilidad'
-                      required
                     )
            v-flex
               v-card.wiki-form.animated.fadeInUp
@@ -153,36 +119,35 @@ v-container(fluid, grid-list-lg)
                       v-toolbar-title.subtitle-1 Campos de texto 
                   v-text-field.pa-3(
                         outlined
-                        label='Público objetivo'
+                        label='Stakeholders'
                         :counter='500'
                         v-model='publico_objetivo'
-                        prepend-icon='mdi-text-short'
-                        hint='Público objetivo'
+                        prepend-icon='mdi-handshake-outline'
+                        hint='Stakeholders: ¿Cuáles son proveedores, clientes, alianzas estratégicas...?'
                         persistent-hint
-                        :rules="requiredRule"
-                        required
                        )
                   v-divider
                   v-text-field.pa-3(
                         outlined
-                        label='Objetivo del proyecto'
+                        label='Reto o necesidad'
                         required
-                        :rules="requiredRule"
                         :counter='500'
                         v-model='proyecto_objetivo'
-                        prepend-icon='mdi-bullseye-arrow'
-                        hint='Objetivo del proyecto'
+                        prepend-icon='mdi-chevron-right-circle-outline'
+                        hint='¿Cuál es tu principal reto o necesidad?'
                         persistent-hint
                        )
                   v-divider
-                  v-switch.pa-3(
-                      inset
-                      v-model='experiencia'
-                      label='¿Tienen experiencia en proyectos similares?'
-                      color='primary'
-                      persistent-hint
-                      hint='Conocer la experiencia de la organización nos dará pistas para crear el proyecto'
-                    )
+                  v-text-field.pa-3(
+                        outlined
+                        label='Diferenciación y otros'
+                        required
+                        :counter='500'
+                        v-model='extra'
+                        prepend-icon='mdi-view-grid-plus-outline'
+                        hint='Escribe información adicional, como la diferenciación con otras organizaciones'
+                        persistent-hint
+                       )
   
   
   
@@ -191,6 +156,7 @@ v-container(fluid, grid-list-lg)
               //-     template(v-for='(value, key) of dataSheet.ProyectosTipo')
               //-       v-list-item-title {{ value[1][0] }}
               //-     v-divider
+  
 </template>
   
   
@@ -206,8 +172,6 @@ v-container(fluid, grid-list-lg)
         generateProjectsRcmdDialog: false,
         sector: '',
         empleados: '',
-        trabajo: '',
-        horas: '',
         tecnologias: '',
         sostenibilidad: '',
         perfil_alumnado: '',
@@ -216,6 +180,7 @@ v-container(fluid, grid-list-lg)
         publico_objetivo: '',
         proyecto_objetivo: '',
         doblin: '',
+        extra: '',
         experiencia: false,
         dataSheet: {},
         errors: [],
@@ -230,6 +195,10 @@ v-container(fluid, grid-list-lg)
       axios.get('/r/create/data-sheet')
         .then(response => {
           this.dataSheet = response.data;
+         for (const key of Object.keys(this.dataSheet)) {
+            this.dataSheet[key].unshift ('');;
+         }
+  
         })
         .catch(e => {
           this.errors.push(e)
@@ -255,8 +224,6 @@ v-container(fluid, grid-list-lg)
              {
                sector: this.sector.toString(),
                empleados: this.empleados.toString(),
-               horas: this.horas.toString(),
-               trabajo: this.trabajo.toString(),
                tecnologias: this.tecnologias.toString(),
                sostenibilidad: this.sostenibilidad.toString(),
                perfil_alumnado: this.perfil_alumnado.toString(),
@@ -264,6 +231,7 @@ v-container(fluid, grid-list-lg)
                experiencia: this.experiencia.toString(),
                publico_objetivo: this.publico_objetivo.toString(),
                doblin: this.doblin.toString(),
+               extra: this.extra.toString(),
                proyecto_objetivo: this.proyecto_objetivo.toString()
              }        
           )
@@ -311,4 +279,5 @@ v-container(fluid, grid-list-lg)
      }
   
   </style>
+  
   
